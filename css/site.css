@@ -1,4 +1,141 @@
+@import url('reset.css');
+
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+  }
+* html .clearfix             { zoom: 1; } /* IE6 */
+*:first-child+html .clearfix { zoom: 1; } /* IE7 */
+
 body
 {
-  color: red;
+  font-family: 'Gudea', sans-serif;
+  font-size: 2.5em;
+}
+
+.calculator
+{
+  width: 380px;
+  /*height: 500px;*/
+  background-color: #57BDB1;
+  margin: 60px auto;
+  position: relative;
+  /*padding: 30px;*/
+}
+
+.calculator:after
+{
+  content: " ";
+  width: 380px;
+  height: 482px;
+  background-color: #eee;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: -1;
+}
+
+.arrow-left, .arrow-right
+{
+  width: 0;
+  height: 0;
+  border-top: 15px solid transparent;
+  border-bottom: 15px solid transparent;
+  position: absolute;
+  transform:rotate(-45deg);
+  -ms-transform:rotate(-45deg); /* IE 9 */
+  -webkit-transform:rotate(-45deg); /* Safari and Chrome */
+}
+
+.arrow-left
+{
+  right: -13px;
+  top: 0;
+  border-right:15px solid #eee;
+}
+
+.arrow-right
+{
+  left: 9px;
+  bottom: -20px;
+  border-left:15px solid #eee;
+}
+
+.calculator-inner
+{
+  margin: 35px;
+  border: 1px solid #57BDB1;
+}
+.top-area
+{
+ /* width: 80%;
+  margin: 25px auto;*/
+  margin: 50px 0 20px 0;
+}
+
+.display
+{
+  height: 60px;
+  width: 73%;
+  background-color: #fff;
+  float: left;
+  margin-right: 20px;
+  color: pink;
+  padding: 10px;
+}
+
+.clear
+{
+  float: left;
+  height: 60px;
+  width: 60px;
+  background-color: pink;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+}
+
+.buttons
+{
+  display: table;
+  margin-bottom: 50px;
+}
+.buttons li
+{
+  width: 60px;
+  height: 60px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  float: left;
+  display: table-cell;
+  vertical-align: middle;
+  background-color: #888;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+}
+
+.buttons li:last-child
+{
+  font-size: .8em;
+  padding: 15px;
+}
+
+.buttons li:nth-child(12)
+{
+  padding: 20px;
+}
+
+.buttons li:nth-child(4n)
+{
+  margin-right: 0;
+}
+
+.buttons li:nth-child(n+12)
+{
+  margin-bottom: 0;
 }
