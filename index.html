@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
   <head>
-
     <meta charset="utf-8">
 
     <title>Javascript Calculator</title>
@@ -22,39 +21,37 @@
     <!--[if IE 7]><html class="no-js lt-ie9 lt-ie8"> <![endif]-->
     <!--[if IE 8]><html class="no-js lt-ie9"> <![endif]-->
     <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-
   </head>
 
   <body>
-      <div class="calculator">
-        <div class="arrow-left"></div>
-        <div class="arrow-right"></div>
-        <div class="calculator-inner">
-
-          <div class="top-area clearfix">
-            <div class="display">12</div>
-            <div class="clear">C</div>
-          </div>
-
-          <ul class="buttons">
-            <li>7</li>
-            <li>8</li>
-            <li>9</li>
-            <li>+</li>
-            <li>4</li>
-            <li>5</li>
-            <li>6</li>
-            <li>-</li>
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
-            <li>*</li>
-            <li>0</li>
-            <li>.</li>
-            <li>=</li>
-            <li>/</li>
-          </ul>
+    <div class="calculator">
+      <div class="arrow-left"></div>
+      <div class="arrow-right"></div>
+      <div class="calculator-inner">
+        <div class="total"></div>
+        <div class="buttons">
+          <span class="operators">
+            <a>+</a>
+            <a>-</a>
+            <a>/</a>
+            <a>*</a>
+          </span>
+          <span class="numbers">
+            <a>1</a>
+            <a>2</a>
+            <a>3</a>
+            <a>4</a>
+            <a>5</a>
+            <a>6</a>
+            <a>7</a>
+            <a>8</a>
+            <a>9</a>
+            <a>0</a>
+          </span>
+          <a id="equals">=</a>
+          <a id="clear">C</a>
         </div>
       </div>
+    </div>
   </body>
 </html>

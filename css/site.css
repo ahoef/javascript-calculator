@@ -15,23 +15,22 @@ body
 {
   font-family: 'Gudea', sans-serif;
   font-size: 2.5em;
+  color: #fff;
 }
 
 .calculator
 {
-  width: 380px;
-  /*height: 500px;*/
-  background-color: #57BDB1;
+  width: 375px;
+  background-color: #57BDB1; /*aqua*/
   margin: 60px auto;
   position: relative;
-  /*padding: 30px;*/
 }
 
 .calculator:after
 {
   content: " ";
-  width: 380px;
-  height: 482px;
+  width: 375px;
+  height: 492px;
   background-color: #eee;
   position: absolute;
   top: 20px;
@@ -47,8 +46,8 @@ body
   border-bottom: 15px solid transparent;
   position: absolute;
   transform:rotate(-45deg);
-  -ms-transform:rotate(-45deg); /* IE 9 */
-  -webkit-transform:rotate(-45deg); /* Safari and Chrome */
+  -ms-transform:rotate(-45deg);
+  -webkit-transform:rotate(-45deg);
 }
 
 .arrow-left
@@ -70,72 +69,67 @@ body
   margin: 35px;
   border: 1px solid #57BDB1;
 }
-.top-area
-{
- /* width: 80%;
-  margin: 25px auto;*/
-  margin: 50px 0 20px 0;
-}
 
-.display
+.total
 {
   height: 60px;
-  width: 73%;
+  margin: 50px 0 30px 0;
+  width: 100%;
   background-color: #fff;
-  float: left;
-  margin-right: 20px;
-  color: pink;
-  padding: 10px;
-}
-
-.clear
-{
-  float: left;
-  height: 60px;
-  width: 60px;
-  background-color: pink;
-  color: #fff;
-  padding: 10px;
-  text-align: center;
+  text-align: right;
+  color: #FFC0CB; /*pink*/
+  padding: 10px 20px;
 }
 
 .buttons
 {
   display: table;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
 }
-.buttons li
+
+.buttons a
 {
   width: 60px;
   height: 60px;
-  margin-right: 20px;
+  margin: 0 20px 20px 0;
   margin-bottom: 20px;
   float: left;
-  display: table-cell;
-  vertical-align: middle;
   background-color: #888;
-  color: #fff;
   text-align: center;
   padding: 10px;
 }
 
-.buttons li:last-child
+.buttons a:hover
+{
+  cursor: pointer;
+}
+
+.buttons a:active
+{
+  -webkit-transition: all .5s ease;
+  -moz-transition: all .5s ease;
+  -o-transition: all .5s ease;
+  transition: all .5s ease;
+  opacity: .5;
+}
+
+.buttons a:nth-child(4n)
+{
+  margin-right: 0;
+}
+
+.operators a:nth-child(3)
 {
   font-size: .8em;
   padding: 15px;
 }
 
-.buttons li:nth-child(12)
+.operators a:last-child
 {
   padding: 20px;
 }
 
-.buttons li:nth-child(4n)
+#clear
 {
-  margin-right: 0;
-}
-
-.buttons li:nth-child(n+12)
-{
-  margin-bottom: 0;
+  background-color: #FFC0CB; /*pink*/
 }
