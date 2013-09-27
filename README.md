@@ -4,7 +4,7 @@ javascript-calculator
 a work-in-progress simple javascript calculator
 
 
-Creating this calculator was a practice exercise in JavaScript, guided by a tutorial on Codeacademy. Currently it doesn't take decimal numbers as inputs, and in a single operation, the value of only two integers can be calculated. Also, it does not yet display rounded decimals or take keyboard inputs. These features will be coming soon!
+Creating this calculator was a practice exercise in JavaScript, guided by a tutorial on Codeacademy. After a refactoring, the calculator now takes multiple integers in an operation, but does not yet take decimal numbers as inputs or display rounded decimals. I'll be working on these features in future iterations. 
 
 The calculator's design and coded styles are my originals. 
 
