@@ -1,66 +1,85 @@
-// This calculator works by using click listeners to store data in string variables, convert data types, and calculate and display values.
+// This calculator works by listening for button clicks,
+// assigning button values to variables, and running JS
+// math calculations to generate a result to display.
 
 $(document).ready(function(){
-  var testNumLength = function(number) {
-        // Set a nine-digit max on the display
-        if (number.length > 9) {
-            totaldiv.text(number.substr(number.length-9,9));
-            // Display an error message if a decimal number is too long
-            if (number.length > 15) {
-                totaldiv.text("too long!");
-            }
-        }
-    };
+  var numOne;
+  var numTwo;
+  var operator;
+  var $display = $(".total");
 
-  var number = "";
-  var newnumber = "";
-  var operator = "";
-  var totaldiv = $(".total");
-  totaldiv.text("0");
+  // Clear variables and set display to '0'
+  function reset() {
+    numOne = null;
+    numTwo = null;
+    operator = null;
+    $display.text("0");
+  }
 
-  // Store the number button's input in the number variable, make sure the number isn't too long, and display the string on the total bar.
-  $(".numbers a").click(function(){
-    number = $(this).text();
-    totaldiv.text(number);
-    testNumLength(number);
+  reset();
+
+  // Set a 12-digit max on the display
+  function testNumLength(number) {
+      if (number.length > 12) {
+        $display.text("too long!");
+      }
+  };
+
+  // Display the first number in the equation by setting
+  // a newVal variable to the first digit clicked, and
+  // concatenating if there are multiple digits/clicks
+  $(".numbers a").click(function() {
+    var clickDigit = $(this).text();
+    var currentVal = $display.text();
+    var newVal;
+    if (currentVal === "0") {
+      newVal = clickDigit;
+    } else {
+      newVal = currentVal + clickDigit;
+    }
+    $display.text(newVal);
+    testNumLength($display.text());
   });
 
-  // Store the operator button's input in the operator variable, move the value of the first digit clicked from the number variable to the newnumber variable, and set the number variable back to an empty string to get ready for another input on click of the second number button.
+  // Store the operator clicked, set the numOne variable
+  // by turning a string (the digits in the display) into
+  // a number to be calculated in the math equation, and
+  // set the display back to '0'
   $(".operators a").click(function(){
     operator = $(this).text();
-    newnumber = number;
-    number = "";
-    totaldiv.text(number);
+    numOne = parseFloat($display.text());
+    $display.text("0");
   });
 
-  // Assign number and newnumber variables empty strings and set the total bar display to 0.
-  $("#clear").click(function(){
-    number = "";
-    totaldiv.text("0");
-    if ($(this).attr("id") === "clear") {
-      newnumber = "";
-    }
-  });
-
-  // Detect the value of the operator variable, turn strings into numbers, and perform math
+  // Set the numTwo variable by getting the display value
+  // of the second set of digits clicked, and turn it into
+  // a number. Perform math calculations conditionally
+  // according the the operator value, and display the total
+  // if it is shorter than 12 digits long.
   $("#equals").click(function(){
+    var total;
+
+    numTwo = parseFloat($display.text());
+
     if (operator === "+"){
-      number = (parseInt(number, 10) + parseInt(newnumber,10)).toString(10);
+      total = numOne + numTwo;
     }
     else if (operator === "-"){
-      number = (parseInt(newnumber, 10) - parseInt(number,10)).toString(10);
+      total = numOne - numTwo;
     }
     else if (operator === "/"){
-      number = (parseInt(newnumber, 10) / parseInt(number,10)).toString(10);
+      total = numOne / numTwo;
     }
     else if (operator === "*"){
-      number = (parseInt(newnumber, 10) * parseInt(number,10)).toString(10);
+      total = numOne * numTwo;
     }
 
-    // Convert the math result to text in the total bar, make sure the number is not too many digits long, and reset variables back to empty strings
-    totaldiv.text(number);
-    testNumLength(number);
-    number = "";
-    newnumber = "";
+    $display.text(total);
+    testNumLength($display.text());
+  });
+
+  // Call reset function
+  $("#clear").click(function(){
+    reset();
   });
 });
